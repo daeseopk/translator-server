@@ -14,7 +14,7 @@ const port = process.env.PORT || 8080;
 // 번역 요청 처리 엔드포인트
 app.post("/translate", async (req, res) => {
   const { apiKey, prompt } = req.body;
-
+  console.log("request accepted from ", req.ip);
   if (!apiKey || !prompt) {
     return res
       .status(400)
