@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const { default: OpenAI } = require("openai");
-const port = 8080;
 
 app.use(cors());
 app.use(express.json());
@@ -10,6 +9,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Open Translator Server is running!");
 });
+const port = process.env.PORT || 8080;
 
 // 번역 요청 처리 엔드포인트
 app.post("/translate", async (req, res) => {
